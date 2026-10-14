@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nugraha Service Elektronik</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--tx:#12202f;--mut:#5b6b7c;--pri:#0b6bcb;--acc:#f5a300;--bd:#dde4ec;--hero:#0a2540;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1620;--card:#15222f;--tx:#e8eef5;--mut:#9fb0c1;--pri:#4da3ff;--bd:#25384a;--hero:#06121f}}
+:root[data-theme="dark"]{--bg:#0d1620;--card:#15222f;--tx:#e8eef5;--mut:#9fb0c1;--pri:#4da3ff;--bd:#25384a;--hero:#06121f}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.w{max-width:1000px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--hero);z-index:9}
+header.top .w{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{color:#fff;font-weight:800;text-decoration:none}.logo span{color:var(--acc)}
+nav a{color:#cfe0f2;text-decoration:none;margin-left:14px;font-size:14px}
+.hero{background:linear-gradient(135deg,var(--hero),#0b4f94);color:#fff;padding:60px 0 54px}
+.hero h1{font-size:clamp(28px,6vw,46px);margin:0 0 10px;line-height:1.2}
+.hero p{max-width:560px;color:#d5e4f4;margin:0 0 24px}
+.btn{display:inline-block;background:var(--acc);color:#111;font-weight:700;padding:12px 22px;border-radius:10px;text-decoration:none;border:0;cursor:pointer;font-size:15px}
+.btn.o{background:transparent;border:2px solid #fff;color:#fff;margin-left:8px}
+section{padding:44px 0}
+h2{font-size:26px;margin:0 0 6px}.sub{color:var(--mut);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px}
+.card .ic{font-size:34px}.card h3{margin:8px 0 6px;font-size:18px}.card p{margin:0;color:var(--mut);font-size:14px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.steps div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 16px 16px 56px;position:relative;font-size:14px}
+.steps div:before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:700}
+.steps b{display:block}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--bd);cursor:pointer}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:12px;padding:18px 8px 6px}
+.ph .x{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.65);color:#fff;border:0;border-radius:50%;width:26px;height:26px;cursor:pointer}
+.ph.d{display:grid;place-items:center;text-align:center;color:var(--mut);font-size:13px;cursor:default;background:repeating-linear-gradient(45deg,var(--card),var(--card) 10px,var(--bg) 10px,var(--bg) 20px)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.bar input[type=text]{flex:1;min-width:160px;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx)}
+.bar .btn{background:var(--pri);color:#fff}
+.note{font-size:12px;color:var(--mut)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;place-items:center;z-index:20;padding:20px}
+#lb.on{display:grid}#lb img{max-width:100%;max-height:85vh;border-radius:10px}
+.kon{background:var(--hero);color:#fff;border-radius:16px;padding:28px;display:grid;gap:8px}
+.kon a{color:var(--acc)}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:24px 0 32px}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+@media(max-width:760px){.hg{grid-template-columns:1fr}.scene{height:230px!important}}
+.hero{perspective:1200px;overflow:hidden}
+.scene{height:290px;perspective:900px;display:grid;place-items:center;position:relative}
+.scene:after{content:"";position:absolute;bottom:14px;width:210px;height:26px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(9px);animation:sh 9s ease-in-out infinite}
+.tv3d{position:relative;width:220px;height:160px;transform-style:preserve-3d;animation:spin 9s ease-in-out infinite}
+.tv3d i{position:absolute;display:block;backface-visibility:hidden}
+.f{inset:0;background:#1b2530;border:8px solid #2c3a49;border-radius:12px;transform:translateZ(45px)}
+.f b{position:absolute;inset:0;border-radius:6px;background:repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 2px,transparent 2px 4px),linear-gradient(135deg,#1e90ff,#0a2f6b 55%,#f5a300);box-shadow:inset 0 0 30px rgba(0,0,0,.6)}
+.f b:after{content:"";position:absolute;left:0;right:0;height:30%;top:-30%;background:linear-gradient(transparent,rgba(255,255,255,.22),transparent);animation:scan 3s linear infinite}
+.f em{position:absolute;inset:0;display:grid;place-items:center;font-style:normal;font-size:44px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.bk{inset:0;background:#18212b;border-radius:12px;transform:rotateY(180deg) translateZ(45px)}
+.rt{width:90px;height:160px;left:65px;background:#243242;transform:rotateY(90deg) translateZ(110px)}
+.lf{width:90px;height:160px;left:65px;background:#1d2937;transform:rotateY(-90deg) translateZ(110px)}
+.tp{width:220px;height:90px;top:35px;background:#33475c;transform:rotateX(90deg) translateZ(80px)}
+.bt{width:220px;height:90px;top:35px;background:#111a23;transform:rotateX(-90deg) translateZ(80px)}
+@keyframes spin{0%,100%{transform:rotateX(-12deg) rotateY(-32deg)}50%{transform:rotateX(-6deg) rotateY(32deg) translateY(-8px)}}
+@keyframes sh{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.8);opacity:.7}}
+@keyframes scan{to{top:130%}}
+.hero h1{text-shadow:0 3px 0 rgba(0,0,0,.25),0 10px 24px rgba(0,0,0,.35)}
+.btn{box-shadow:0 5px 0 #b87800,0 10px 18px rgba(0,0,0,.3);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #b87800}
+.btn.o{box-shadow:0 5px 0 rgba(255,255,255,.35),0 10px 18px rgba(0,0,0,.3)}
+.bar .btn{box-shadow:0 5px 0 #084a8e,0 10px 18px rgba(0,0,0,.25)}
+.grid,.steps,.gal{perspective:1000px}
+.card,.steps div,.ph{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0);transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .2s;box-shadow:0 1px 0 var(--bd),0 8px 0 -3px var(--bd),0 14px 26px rgba(10,37,64,.18)}
+.card:hover,.steps div:hover,.ph:hover{box-shadow:0 1px 0 var(--bd),0 10px 0 -3px var(--bd),0 24px 40px rgba(10,37,64,.28)}
+.card .ic{display:inline-block;transform:translateZ(46px);filter:drop-shadow(0 8px 6px rgba(0,0,0,.3));transition:transform .2s}
+.card:hover .ic{transform:translateZ(70px) scale(1.12)}
+.card h3,.card p{transform:translateZ(18px)}
+.kon{box-shadow:0 10px 0 -2px #06121f,0 24px 40px rgba(0,0,0,.35);transform:perspective(900px) rotateX(3deg)}
+header.top{box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.m3{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px 16px 20px;text-align:center;box-shadow:0 8px 0 -3px var(--bd),0 16px 30px rgba(10,37,64,.2)}
+.m3 h3{margin:0 0 4px}.m3 p{margin:0;color:var(--mut);font-size:14px}
+.stage{height:250px;display:grid;place-items:center;perspective:800px;position:relative}
+.stage:after{content:"";position:absolute;bottom:22px;width:150px;height:18px;border-radius:50%;background:rgba(0,0,0,.35);filter:blur(8px)}
+.rot{position:relative;width:0;height:0;transform-style:preserve-3d;animation:rot 14s linear infinite;z-index:1}
+.rot.rev{animation-direction:reverse}
+@keyframes rot{from{transform:rotateX(-16deg) rotateY(0)}to{transform:rotateX(-16deg) rotateY(360deg)}}
+.cy{position:absolute;transform-style:preserve-3d}
+.cy i,.rd i{position:absolute;display:block;backface-visibility:hidden}
+.rd{position:absolute;left:-100px;top:-60px;width:200px;height:120px;transform-style:preserve-3d}
+.rf{inset:0;border-radius:10px;background:linear-gradient(145deg,#a0522d,#6b2f14);transform:translateZ(35px)}
+.rf b{position:absolute;display:block}
+.dl{left:12px;right:12px;top:12px;height:28px;border-radius:4px;background:repeating-linear-gradient(90deg,#3a2a10 0 1px,transparent 1px 8px),linear-gradient(#f3e3b0,#d9c07a);box-shadow:inset 0 2px 5px rgba(0,0,0,.5)}
+.dl:after{content:"";position:absolute;left:38%;top:0;bottom:0;width:2px;background:#d62b1f}
+.sp{left:14px;top:52px;width:104px;height:54px;border-radius:6px;background:radial-gradient(circle,#050505 1.6px,transparent 2.2px) 0 0/8px 8px,#2a1a10}
+.kb{top:60px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#eee,#777 70%);box-shadow:0 3px 5px rgba(0,0,0,.5)}
+.rbk{inset:0;border-radius:10px;background:#4a1f0c;transform:rotateY(180deg) translateZ(35px)}
+.rr,.rl{width:70px;height:120px;left:65px}.rr{background:#7a3a1a;transform:rotateY(90deg) translateZ(100px)}.rl{background:#6a3115;transform:rotateY(-90deg) translateZ(100px)}
+.rtp{width:200px;height:70px;top:25px;background:#8d4623;transform:rotateX(90deg) translateZ(60px)}
+.rbt{width:200px;height:70px;top:25px;background:#2b1308;transform:rotateX(-90deg) translateZ(60px)}
+.ant{left:150px;top:-92px;width:4px;height:100px;background:linear-gradient(90deg,#ccd,#889);transform-origin:bottom;transform:rotateZ(24deg) translateZ(-10px);border-radius:2px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:9px 14px;border-radius:10px;cursor:pointer;font-size:14px;box-shadow:0 3px 0 var(--bd);transition:transform .1s}
+.tabs button:active{transform:translateY(2px)}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri);box-shadow:0 3px 0 #084a8e}
+.tool{display:none;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;box-shadow:0 8px 0 -3px var(--bd),0 16px 30px rgba(10,37,64,.15)}.tool.on{display:block}
+.tool h3{margin:0 0 4px}.tool .hint{margin:0 0 14px;color:var(--mut);font-size:13px}
+.fl2{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:14px}
+.fl2 label{font-size:13px;color:var(--mut);display:grid;gap:4px}
+.fl2 input,.fl2 select{padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font-size:15px;width:100%}
+.out{border-left:4px solid var(--acc);background:var(--bg);padding:12px 14px;border-radius:8px;font-size:15px;line-height:1.8}
+.out b{color:var(--pri)}
+.res{display:flex;align-items:center;margin:0 0 14px;max-width:260px}
+.res .ld{height:4px;width:34px;background:#9aa4ad}
+.res .bd{flex:1;display:flex;justify-content:space-between;padding:0 22px;height:40px;border-radius:20px;background:#d9c08a;box-shadow:inset 0 -7px 8px rgba(0,0,0,.22),inset 0 6px 7px rgba(255,255,255,.4),0 6px 10px rgba(0,0,0,.25)}
+.res .bd i{display:block;width:11px;background:#888}
+.rvs{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.rvs .big{font-size:44px;font-weight:800;line-height:1;color:var(--pri)}
+.stars{color:var(--acc);letter-spacing:2px}
+.rvg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:start}
+.rvf{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;box-shadow:0 8px 0 -3px var(--bd),0 16px 30px rgba(10,37,64,.15)}
+.rvf h3{margin:0 0 12px}.rvf .fl2{grid-template-columns:1fr}
+.rvf textarea{padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit;width:100%;min-height:90px;resize:vertical}
+.sin{display:flex;gap:4px;margin-bottom:12px}
+.sin button{background:none;border:0;font-size:30px;line-height:1;color:var(--bd);cursor:pointer;padding:0 2px;transition:transform .1s}
+.sin button.on{color:var(--acc)}.sin button:active{transform:scale(.85)}
+.rvl{display:grid;gap:12px}
+.rvc{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;box-shadow:0 5px 0 -2px var(--bd),0 10px 20px rgba(10,37,64,.12)}
+.rvc .h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.rvc p{margin:6px 0 4px;font-size:14px}
+.rvc small{color:var(--mut)}.rvc .dl2{background:none;border:0;color:var(--mut);cursor:pointer;font-size:12px;text-decoration:underline;padding:0;margin-left:8px}
+#rvMsg{font-size:13px;margin:8px 0 0;min-height:18px}
+@media(prefers-reduced-motion:reduce){.rot{animation:none;transform:rotateX(-16deg) rotateY(-30deg)}}
+@media(prefers-reduced-motion:reduce){.tv3d,.scene:after,.f b:after{animation:none}.tv3d{transform:rotateX(-10deg) rotateY(-25deg)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w"><a class="logo" href="#">Nugraha <span>Service</span> Elektronik</a>
+<nav><a href="#layanan">Layanan</a><a href="#alat">Alat</a><a href="#galeri">Galeri</a><a href="#kontak">Kontak</a></nav></div></header>
 
+<div class="hero"><div class="w hg"><div class="ht">
+<h1>Servis Elektronik Cepat, Jujur, dan Bergaransi</h1>
+<p>Melayani perbaikan televisi tabung, televisi LED, rice cooker (mejikom), dan radio. Kerusakan dicek dulu, biaya diberitahu sebelum diperbaiki.</p>
+<a class="btn" href="#kontak">Hubungi Kami</a><a class="btn o" href="#galeri">Lihat Dokumentasi</a>
+</div>
+<div class="scene" aria-hidden="true"><div class="tv3d"><i class="f"><b></b><em>🔧</em></i><i class="bk"></i><i class="rt"></i><i class="lf"></i><i class="tp"></i><i class="bt"></i></div></div>
+</div></div>
+
+<section id="layanan"><div class="w">
+<h2>Layanan Kami</h2><p class="sub">Perbaikan untuk berbagai peralatan elektronik rumah tangga.</p>
+<div class="grid">
+<div class="card"><div class="ic">📺</div><h3>TV Tabung (CRT)</h3><p>Layar gelap atau bergaris, gambar menyempit, tanpa suara, mati total, sampai ganti flyback.</p></div>
+<div class="card"><div class="ic">🖥️</div><h3>TV LED</h3><p>Layar blank, backlight mati, bergaris, tidak ada gambar tapi ada suara, mati sendiri, dan masalah power supply.</p></div>
+<div class="card"><div class="ic">🍚</div><h3>Rice Cooker / Mejikom</h3><p>Tidak panas, nasi tidak matang, lampu tidak menyala, ganti termostat atau elemen pemanas.</p></div>
+<div class="card"><div class="ic">📻</div><h3>Radio</h3><p>Tidak ada suara, sulit menangkap siaran, bunyi berdengung, dan perbaikan radio lama.</p></div>
+</div></div></section>
+
+<section style="padding-top:0"><div class="w">
+<h2>Model 3D Peralatan</h2><p class="sub">Rice cooker (mejikom) dan radio yang biasa kami servis, berputar otomatis.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+<div class="m3"><div class="stage"><div class="rot" id="rc"></div></div><h3>Rice Cooker / Mejikom</h3><p>Tidak panas, nasi tidak matang, lampu mati.</p></div>
+<div class="m3"><div class="stage"><div class="rot rev"><div class="rd"><i class="rf"><b class="dl"></b><b class="sp"></b><b class="kb" style="left:132px"></b><b class="kb" style="left:164px"></b></i><i class="rbk"></i><i class="rr"></i><i class="rl"></i><i class="rtp"></i><i class="rbt"></i><i class="ant"></i></div></div></div><h3>Radio</h3><p>Tanpa suara, sulit menangkap siaran, berdengung.</p></div>
+</div></div></section>
+
+<section id="alat" style="padding-top:0"><div class="w">
+<h2>Kalkulator &amp; Alat Bantu Desain Sirkuit</h2><p class="sub">Hitung cepat untuk teknisi dan hobiis elektronika. Hasil bersifat perkiraan, tetap ukur dengan multimeter.</p>
+<div class="tabs"><button class="on" data-t="t1">Hukum Ohm</button><button data-t="t2">Kode Warna Resistor</button><button data-t="t3">Resistor LED</button><button data-t="t4">Pembagi Tegangan</button><button data-t="t5">Filter RC</button></div>
+<div class="tool on" id="t1"><h3>Hukum Ohm &amp; Daya</h3><p class="hint">Isi dua kolom, yang ketiga dan daya dihitung otomatis.</p>
+<div class="fl2"><label>Tegangan V (volt)<input id="oV" type="number" step="any" inputmode="decimal"></label><label>Arus I (mA)<input id="oI" type="number" step="any" inputmode="decimal"></label><label>Hambatan R (ohm)<input id="oR" type="number" step="any" inputmode="decimal"></label></div><div class="out" id="oOut"></div></div>
+<div class="tool" id="t2"><h3>Kode Warna Resistor (4 gelang)</h3><p class="hint">Pilih warna gelang sesuai urutan dari ujung terdekat.</p>
+<div class="res"><span class="ld"></span><div class="bd"><i id="c1"></i><i id="c2"></i><i id="c3"></i><i id="c4"></i></div><span class="ld"></span></div>
+<div class="fl2"><label>Gelang 1<select id="rb1"></select></label><label>Gelang 2<select id="rb2"></select></label><label>Pengali<select id="rm"></select></label><label>Toleransi<select id="rt"></select></label></div><div class="out" id="rOut"></div></div>
+<div class="tool" id="t3"><h3>Resistor Pembatas LED</h3><p class="hint">Contoh: sumber 5 V, LED merah Vf 2 V, arus 15 mA.</p>
+<div class="fl2"><label>Tegangan sumber (V)<input id="lS" type="number" step="any" inputmode="decimal" value="5"></label><label>Vf LED (V)<input id="lF" type="number" step="any" inputmode="decimal" value="2"></label><label>Arus LED (mA)<input id="lI" type="number" step="any" inputmode="decimal" value="15"></label></div><div class="out" id="lOut"></div></div>
+<div class="tool" id="t4"><h3>Pembagi Tegangan</h3><p class="hint">Vout = Vin × R2 / (R1 + R2), tanpa beban.</p>
+<div class="fl2"><label>Vin (V)<input id="dV" type="number" step="any" inputmode="decimal" value="12"></label><label>R1 (ohm)<input id="dR1" type="number" step="any" inputmode="decimal" value="10000"></label><label>R2 (ohm)<input id="dR2" type="number" step="any" inputmode="decimal" value="4700"></label></div><div class="out" id="dOut"></div></div>
+<div class="tool" id="t5"><h3>Filter RC &amp; Konstanta Waktu</h3><p class="hint">Frekuensi cutoff dan waktu pengisian kapasitor.</p>
+<div class="fl2"><label>R (ohm)<input id="cR" type="number" step="any" inputmode="decimal" value="10000"></label><label>C (&micro;F)<input id="cC" type="number" step="any" inputmode="decimal" value="0.1"></label></div><div class="out" id="cOut"></div></div>
+</div></section>
+
+<section style="padding-top:0"><div class="w">
+<h2>Cara Kerja</h2><p class="sub">Alur sederhana, tanpa kejutan biaya.</p>
+<div class="steps">
+<div><b>Antar / Panggil</b>Bawa barang ke bengkel atau hubungi kami.</div>
+<div><b>Pengecekan</b>Teknisi mencari sumber kerusakan.</div>
+<div><b>Konfirmasi Biaya</b>Anda setuju dulu sebelum dikerjakan.</div>
+<div><b>Perbaikan &amp; Uji</b>Dikerjakan lalu dites sebelum diserahkan.</div>
+</div></div></section>
+
+<section id="galeri"><div class="w">
+<h2>Dokumentasi Foto</h2><p class="sub">Foto hasil pekerjaan, proses servis, dan bengkel.</p>
+<div class="bar">
+<input type="text" id="cap" placeholder="Keterangan foto (mis. TV LED 32 inci ganti backlight)">
+<input type="file" id="fl" accept="image/*" multiple hidden>
+<button class="btn" id="up">+ Tambah Foto</button>
+</div>
+<p class="note">Foto yang ditambahkan tersimpan di browser perangkat ini saja (tidak terunggah ke server).</p>
+<div class="gal" id="gal"></div>
+</div></section>
+
+<section id="ulasan"><div class="w">
+<h2>Ulasan Pelanggan</h2><p class="sub">Pengalaman pelanggan yang servis di Nugraha Service Elektronik.</p>
+<div class="rvs"><span class="big" id="rvAvg">–</span><div><div class="stars" id="rvStars" style="font-size:22px"></div><small class="note" id="rvCnt"></small></div></div>
+<div class="rvg">
+<div class="rvf"><h3>Tulis Ulasan</h3>
+<div class="sin" id="rvIn" role="group" aria-label="Beri bintang"><button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="
